@@ -1,8 +1,8 @@
 import DetailsBanner from './detailsBanner/DetailsBanner'
 import { useParams } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
-import TopCast from './topCast/topCast';
-import OfficialVideo from './officialVideos/officialVideo';
+import TopCast from './topCast/TopCast';
+import OfficialVideo from './officialVideos/OfficialVideo';
 import Similar from './carousel/Similar';
 import Recommendation from './carousel/Recommendation';
 
