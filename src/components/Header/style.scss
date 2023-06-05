@@ -1,0 +1,170 @@
+@import '../../mixin.scss';
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  height: 60px;
+  backdrop-filter: blur(2px) brightness(.7);
+  color: white;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8rem;
+  transition: all 0.3s ease-in-out;
+  img {
+    height: 50px;
+    cursor: pointer;
+  }
+
+  &.show {
+    background-color: var(--black3);
+  }
+  &.hide {
+    transform: translateY(-60px);
+  }
+
+  @include lg {
+    root {
+      font-size: 50%;
+    }
+    & {
+      padding: 0 1rem;
+    }
+
+    img {
+      height: 40px;
+    }
+  }
+
+  .navlist {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    font-size: 1.1rem;
+    align-items: center;
+  }
+
+  .navItem {
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    &:hover {
+      color: var(--pink);
+  }
+  }
+
+  .mobileNavItem {
+    display: none;
+  }
+  .mobileItems .navItem {
+    display: flex;
+    font-size: 1.5rem;
+  }
+  .mobileItems {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #04152d;
+    color: var(--pink);
+    height: 7rem;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    animation: mobileMenu 0.2s linear forwards;
+  }
+
+  @keyframes mobileMenu {
+    0% {
+      transform: translateY(calc(-100% - 60px));
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(calc(0% + 45px));
+      opacity: 1;
+    }
+  }
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+
+    .searchbar {
+      border-style: none;
+      height: 30px;
+      width: 30px;
+      outline: none;
+      border-radius: 50%;
+      transition: 0.5s ease-in-out;
+      background-color: transparent;
+      box-shadow: 0px 0px 3px #f3f3f3;
+      padding-right: 30px;
+      color: #fff;
+
+      &::placeholder,
+      & {
+        font-size: 17px;
+      }
+
+      &::placeholder {
+        color: #8f8f8f;
+      }
+    }
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      font-size: 1rem;
+      right: 0px;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      color: white;
+      outline: none;
+      border-style: none;
+      border-radius: 50%;
+      pointer-events: painted;
+      background-color: transparent;
+      transition: 0.2s linear;
+    }
+
+    .icon:focus ~ .searchbar,
+    .searchbar:focus {
+      box-shadow: none;
+      width: 250px;
+      border-radius: 0px;
+      background-color: transparent;
+      border-bottom: 1px solid #f89e00e1;
+      transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+    }
+
+    .icon:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  @include lg {
+    .navItem {
+      display: none;
+    }
+
+    .mobileNavItem {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .input-wrapper .icon:focus ~ .searchbar,
+    .input-wrapper .searchbar:focus {
+      width: 150px;
+    }
+  }
+}
