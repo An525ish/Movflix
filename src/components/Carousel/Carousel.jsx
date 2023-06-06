@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 import Genres from '../Genres/Genres';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import PosterFallback from "../../assets/no-poster.png";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
